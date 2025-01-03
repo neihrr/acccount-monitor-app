@@ -1,10 +1,10 @@
+import Link from "next/link";
 import { getAccounts } from "./action";
 
 async function Accounts() {
   const accountList = await getAccounts();
-  console.log("Accounts", accountList);
   return (
-    <div >
+    <div>
       <h1>List of Accounts</h1>
       <table className="min-w-full text-black border-collapse border border-gray-300">
         <thead>
@@ -25,22 +25,23 @@ async function Accounts() {
               },
               index: number
             ) => (
-              <tr
-                key={index}
-                className={`${
-                  index % 2 === 0 ? "bg-white" : "bg-gray-50"
-                } hover:bg-gray-200`}
-              >
-                <td className="border border-gray-300 px-4 py-2">
-                  {account.name}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {account.accountNumber}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {account.balance}
-                </td>
-              </tr>
+              <Link href={`/accounts/${account.id}`} key={index}>
+                <tr
+                  className={`${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                  } hover:bg-gray-200`}
+                >
+                  <td className="border border-gray-300 px-4 py-2">
+                    {account.name}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {account.accountNumber}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {account.balance}
+                  </td>
+                </tr>
+              </Link>
             )
           )}
         </tbody>
