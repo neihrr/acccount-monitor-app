@@ -13,3 +13,21 @@ export async function getAccountTransaction({
   const accountTransactions = await response.json();
   return accountTransactions;
 }
+
+
+export async function getAccountById({
+  accountId,
+}: {
+  accountId: number;
+}) {
+  console.log("accountId in action:", accountId);
+  const url = new URL(
+    process.env.ACCOUNT_MANAGER_API_URL +
+      "/accounts" +
+      `/${accountId}`
+  );
+  const response = await fetch(url.toString());
+  const account = await response.json();
+  return account;
+}
+
