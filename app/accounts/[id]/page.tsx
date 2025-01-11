@@ -21,7 +21,7 @@ async function AccountDetails({ params }: AccountDetailsProps) {
   const account = await getAccountById({
     accountId: parseInt(data.id),
   });
-  console.log(account);
+  console.log(accountTransactions);
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
@@ -45,9 +45,10 @@ async function AccountDetails({ params }: AccountDetailsProps) {
                 <div className="text-sm text-gray-500 mb-1">
                   {new Date(transaction.timestamp).toLocaleString()}
                 </div>
-                <div className="text-sm text-gray-700 font-semibold">
-                  Amount: ${transaction.amount.toFixed(2)}
+                <div className="text-sm text-gray-500 mb-1">
+                  Amount:{transaction.amount.toFixed(2)}$
                 </div>
+                
               </div>
             )
           )}

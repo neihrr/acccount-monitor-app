@@ -56,7 +56,7 @@ async function AccountDetails({ params }) {
     const account = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$accounts$2f5b$id$5d2f$action$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getAccountById"])({
         accountId: parseInt(data.id)
     });
-    console.log(account);
+    console.log(accountTransactions);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "p-6 bg-gray-100 min-h-screen",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -99,10 +99,11 @@ async function AccountDetails({ params }) {
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-sm text-gray-700 font-semibold",
+                                    className: "text-sm text-gray-500 mb-1",
                                     children: [
-                                        "Amount: $",
-                                        transaction.amount.toFixed(2)
+                                        "Amount:",
+                                        transaction.amount.toFixed(2),
+                                        "$"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/accounts/[id]/page.tsx",
