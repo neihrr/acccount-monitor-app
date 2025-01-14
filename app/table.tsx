@@ -20,7 +20,7 @@ function Table({
     <table className="min-w-full text-black border-collapse border border-gray-300">
       <thead>
         <tr className="bg-gray-100 text-left">
-          {tableData.columns.map((column: string, index: number) => (
+          {tableData.columns && tableData.columns.map((column: string, index: number) => (
             <th className="border border-gray-300 px-4 py-2" key={index}>
               {column}
             </th>
@@ -28,7 +28,7 @@ function Table({
         </tr>
       </thead>
       <tbody>
-        {list.map((account: Account, index: number) => (
+        {list && list.map((account: Account, index: number) => (
           <tr
             key={index}
             onClick={() => router.push(`/accounts/${account.id}`)}

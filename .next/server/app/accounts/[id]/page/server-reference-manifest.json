@@ -1,6 +1,6 @@
 {
   "node": {
-    "40f553e7e257b62ff1e81109a4c87760d15065e807": {
+    "4052a5e14699509a0022f48b343948683aa042ff51": {
       "workers": {
         "app/accounts/[id]/page": {
           "moduleId": "[project]/.next-internal/server/app/accounts/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/accounts/[id]/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
@@ -11,7 +11,7 @@
         "app/accounts/[id]/page": "rsc"
       }
     },
-    "4052a5e14699509a0022f48b343948683aa042ff51": {
+    "40f553e7e257b62ff1e81109a4c87760d15065e807": {
       "workers": {
         "app/accounts/[id]/page": {
           "moduleId": "[project]/.next-internal/server/app/accounts/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/accounts/[id]/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
