@@ -1,17 +1,1 @@
-{
-  "node": {
-    "00746caa170e79c0f231d424f846bbd1a4d403a675": {
-      "workers": {
-        "app/accounts/page": {
-          "moduleId": "[project]/.next-internal/server/app/accounts/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/accounts/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/accounts/page": "rsc"
-      }
-    }
-  },
-  "edge": {},
-  "encryptionKey": "j5EQiYSzGBI35zpvoaT6FYhHp9GwO0YhpcMgwNAgd6E="
-}
+{"node":{"0045610830f87e07897c5a0e71b33afe68fb8be468":{"workers":{"app/accounts/page":{"moduleId":"7681","async":false}},"layer":{"app/accounts/page":"rsc"}},"407a9574b36e083c68b0d13e757c35c71d4b07d24c":{"workers":{"app/accounts/[id]/page":{"moduleId":"3159","async":false}},"layer":{"app/accounts/[id]/page":"rsc"}},"40bb1719c94d06ed8bcb0b93abd52561dd8765ea8d":{"workers":{"app/accounts/[id]/page":{"moduleId":"3159","async":false}},"layer":{"app/accounts/[id]/page":"rsc"}}},"edge":{},"encryptionKey":"Zbm7lY6Cea2LTRvJMMVR+09Gm8NdRnMrdQD7HWy6EeQ="}
