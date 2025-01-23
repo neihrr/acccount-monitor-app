@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18-slim as builder
+FROM node:18-slim AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install

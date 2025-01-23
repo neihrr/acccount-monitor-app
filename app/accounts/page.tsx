@@ -1,8 +1,16 @@
-import { getAccounts } from "./action";
 import Table from "../table";
+import { getAccounts } from "./action";
 
-async function Accounts() {
+export async function getServerSideProps() {
   const accountList = await getAccounts();
+  return {
+    props: {
+      accountList,
+    },
+  };
+}
+
+export default function Accounts({ accountList }: { accountList: any[] }) {
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
@@ -19,5 +27,3 @@ async function Accounts() {
     </div>
   );
 }
-
-export default Accounts;
