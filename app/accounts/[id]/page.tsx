@@ -9,26 +9,15 @@ interface Transaction {
   status: boolean;
 }
 
-export async function getServerSideProps(context: { params: { id: string } }) {
-  const accountId = parseInt(context.params.id);
+export default async function AccountDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const accountId = parseInt(params.id);
   const accountTransactions = await getAccountTransaction({ accountId });
   const account = await getAccountById({ accountId });
 
-  return {
-    props: {
-      account,
-      accountTransactions,
-    },
-  };
-}
-
-export default function AccountDetails({
-  account,
-  accountTransactions,
-}: {
-  account: { name: string };
-  accountTransactions: Transaction[];
-}) {
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
@@ -38,7 +27,7 @@ export default function AccountDetails({
           </h1>
         </div>
         <div className="p-6">
-          {accountTransactions.map((transaction, index) => (
+          {accountTransactions.map((transaction: Transaction, index: number) => (
             <div
               key={index}
               className={`p-4 mb-4 rounded-lg shadow-md ${
