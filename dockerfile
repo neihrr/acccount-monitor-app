@@ -16,9 +16,6 @@ COPY --from=builder /app ./
 # Install only production dependencies
 RUN npm install --production
 
-# Set default environment variables
-ENV ACCOUNT_MANAGER_API_URL=http://localhost:8080
-
 # Expose the application port
 EXPOSE 3000
 
