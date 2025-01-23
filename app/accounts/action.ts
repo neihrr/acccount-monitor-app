@@ -1,11 +1,16 @@
 "use server";
+import { getManagerPodIP } from "../utils/k8sConfig";
 
 export async function getAccounts() {
-  const url = new URL(process.env.ACCOUNT_MANAGER_API_URL + "/accounts");
+  const managerPodIP =
+    process.env.ACCOUNT_MANAGER_API_URL ||
+    (await getManagerPodIP());
+
+  const url = new URL(managerPodIP + "/accounts");
+
   try {
     const response = await fetch(url.toString());
-    console.log("accoouuuunts",response);
-    if(!response.ok){
+    if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     return await response.json();
