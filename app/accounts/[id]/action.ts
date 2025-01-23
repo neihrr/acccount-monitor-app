@@ -10,7 +10,7 @@ export async function getAccountTransaction({
   const serviceDetails = await getServiceDetails();
   if (serviceDetails) {
     const { externalIp, port } = serviceDetails;
-    const apiUrl = `http://${externalIp}:${port}/transactions/accounts/${accountId}`;
+    const apiUrl = `http://${externalIp}:${port}/transactions/account/${accountId}`;
     const url = new URL(apiUrl);
     try {
       const response = await fetch(url.toString());
@@ -29,7 +29,7 @@ export async function getAccountById({ accountId }: { accountId: number }) {
   const serviceDetails = await getServiceDetails();
   if (serviceDetails) {
     const { externalIp, port } = serviceDetails;
-    const apiUrl = `http://${externalIp}:${port}/accounts${accountId}`;
+    const apiUrl = `http://${externalIp}:${port}/accounts/${accountId}`;
     console.log("Making API request to:", apiUrl);
     const url = new URL(apiUrl);
     try {

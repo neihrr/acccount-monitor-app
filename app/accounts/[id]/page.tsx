@@ -9,11 +9,14 @@ interface Transaction {
   status: boolean;
 }
 
-export default async function AccountDetails({
-  params,
-}: {
-  params: { id: string };
-}) {
+type Params = Promise<{ id: string }>;
+export async function generateMetadata(props: { params: Params }) {
+  const params = await props.params;
+  console.log("params", params);
+}
+
+export default async function AccountDetails(props: { params: Params }) {
+  const params = await props.params;
   const accountId = parseInt(params.id);
   const accountTransactions = await getAccountTransaction({ accountId });
   const account = await getAccountById({ accountId });
@@ -27,24 +30,26 @@ export default async function AccountDetails({
           </h1>
         </div>
         <div className="p-6">
-          {accountTransactions.map((transaction: Transaction, index: number) => (
-            <div
-              key={index}
-              className={`p-4 mb-4 rounded-lg shadow-md ${
-                index % 2 === 0 ? "bg-gray-50" : "bg-white"
-              } hover:bg-gray-100 transition duration-200`}
-            >
-              <div className="text-lg font-medium text-gray-700 capitalize mb-2">
-                {transaction.type}
+          {accountTransactions.map(
+            (transaction: Transaction, index: number) => (
+              <div
+                key={index}
+                className={`p-4 mb-4 rounded-lg shadow-md ${
+                  index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                } hover:bg-gray-100 transition duration-200`}
+              >
+                <div className="text-lg font-medium text-gray-700 capitalize mb-2">
+                  {transaction.type}
+                </div>
+                <div className="text-sm text-gray-500 mb-1">
+                  {new Date(transaction.timestamp).toLocaleString()}
+                </div>
+                <div className="text-sm text-gray-500 mb-1">
+                  Amount: {transaction.amount.toFixed(2)}$
+                </div>
               </div>
-              <div className="text-sm text-gray-500 mb-1">
-                {new Date(transaction.timestamp).toLocaleString()}
-              </div>
-              <div className="text-sm text-gray-500 mb-1">
-                Amount: {transaction.amount.toFixed(2)}$
-              </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </div>
