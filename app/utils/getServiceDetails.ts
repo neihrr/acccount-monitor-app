@@ -29,7 +29,7 @@ export async function getServiceDetails(): Promise<ExternalIpInfo | undefined> {
           continue;
         }
   
-        return { externalIp, port }; // Return the external IP if found
+        return { externalIp, port };
       } else {
         console.log("No external ip found");
       }

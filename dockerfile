@@ -8,6 +8,8 @@ RUN npm run build
 
 # Stage 2: Runtime
 FROM node:18-slim
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 WORKDIR /app
 
 # Copy built files from the builder stage
